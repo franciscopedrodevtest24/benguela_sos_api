@@ -1,0 +1,6 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+ 	"name": "benguela-sos",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-06-01"
+}

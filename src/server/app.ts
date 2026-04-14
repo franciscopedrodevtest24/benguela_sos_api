@@ -31,5 +31,6 @@ const list_cors_origins=[
         message:"OK"
     })
 })
+.compile()
 
 export default app
