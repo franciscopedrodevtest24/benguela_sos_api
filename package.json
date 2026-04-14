@@ -24,6 +24,6 @@
     "drizzle-kit": "^0.31.10",
     "tsx": "^4.21.0"
   },
-  "module": "src/index.ts",
+  "module": "src/index.js",
   "type": "module"
 }
