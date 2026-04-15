@@ -10,7 +10,8 @@ const auth_true_user = new Elysia({ name: "better-auth" })
           headers,
         });
         if (!session) return status(401,{
-          
+          message:"Não autorizado",
+          success:false
         });
         return {
           user: session.user,
