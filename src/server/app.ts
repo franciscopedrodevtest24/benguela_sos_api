@@ -11,8 +11,8 @@ const list_cors_origins=[
     "http://localhost:3000",
     "http://localhost:3001",
 ]
-const intervalMs = Number(Bun.env.MATCH_CRON_INTERVAL_MS || 300000)
-const minScore = Number(Bun.env.MATCH_MIN_SCORE || 55)
+const intervalMs = Number(process.env.MATCH_CRON_INTERVAL_MS || 300000)
+const minScore = Number(process.env.MATCH_MIN_SCORE || 55)
 
 // converter ms → expressão cron
 // ex: 300000ms = 5 min → */5 * * * *
