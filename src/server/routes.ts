@@ -2,6 +2,7 @@ import Elysia from "elysia";
 import { found_children_routes } from "../modules/found_children/found_children.route";
 import { missing_children_routes } from "../modules/missing_children/missing_children.route";
 import { matches_routes } from "../modules/matches/matches.route";
+import { auth } from "../lib/auth";
 
 export const routes_global = new Elysia({
   prefix: "/api",
@@ -15,4 +16,5 @@ export const routes_global = new Elysia({
 })
   .use(found_children_routes)
   .use(missing_children_routes)
-  .use(matches_routes);
+  .use(matches_routes)
+  .mount(auth.handler)

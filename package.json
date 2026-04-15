@@ -11,6 +11,8 @@
     "@elysiajs/cors": "^1.4.1",
     "@elysiajs/cron": "^1.4.1",
     "@elysiajs/openapi": "^1.4.14",
+    "better-auth": "^1.6.3",
+    "cloudflare-worker": "^1.0.0",
     "dotenv": "^17.4.2",
     "drizzle-orm": "^0.45.2",
     "drizzle-typebox": "^0.3.3",
@@ -22,7 +24,8 @@
     "@types/pg": "^8.20.0",
     "bun-types": "latest",
     "drizzle-kit": "^0.31.10",
-    "tsx": "^4.21.0"
+    "tsx": "^4.21.0",
+    "wrangler": "^4.82.2"
   },
   "type": "module"
 }
