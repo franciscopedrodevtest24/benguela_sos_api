@@ -2,7 +2,6 @@ import Elysia from "elysia";
 import { routes_global } from "./routes";
 import { openapi } from "@elysiajs/openapi";
 import { cors } from "@elysiajs/cors";
-import { CloudflareAdapter } from 'elysia/adapter/cloudflare-worker'
 import { OpenAPI } from "../plugins/better_auth";
 
 
@@ -12,9 +11,7 @@ const list_cors_origins=[
 ]
 
 
- const app=new Elysia({
-    adapter: CloudflareAdapter 
- })
+ const app=new Elysia()
 .use(cors({
     origin:list_cors_origins,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
