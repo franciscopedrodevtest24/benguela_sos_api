@@ -1,5 +1,4 @@
 import { Context } from "elysia";
-import { start_matches_cron } from "./modules/matches/matches.cron";
 import app from "./server/app";
 import { Env } from "bun";
 
