@@ -1,9 +1,11 @@
 import Elysia, { t } from "elysia";
 import { missing_children_models } from "./missing_children.models";
 import { missing_children_service } from "./missing_children.service";
+import { auth_true_user } from "../../plugins/better_auth";
 
 export const missing_children_controller = new Elysia()
   .use(missing_children_models)
+  .use(auth_true_user)
   .post(
     "/",
     async ({ body, status }) => {
@@ -40,7 +42,7 @@ export const missing_children_controller = new Elysia()
         message: "Lista de crianças desaparecidas recuperada com sucesso",
       });
     },
-    {
+    {auth:true,
       query: "query_filter_missing_children",
       response: {
         200: "missing_children_paginated",
@@ -101,7 +103,7 @@ export const missing_children_controller = new Elysia()
         message: "Registro atualizado",
       });
     },
-    {
+    {auth:true,
       body: "update_missing_children",
       params: t.Object({ id: t.String() }),
       response: {
@@ -134,7 +136,7 @@ export const missing_children_controller = new Elysia()
         message: "Estado atualizado",
       });
     },
-    {
+    {auth:true,
       body: "_update_status_missing_children",
       params: t.Object({ id: t.String() }),
       response: {
@@ -167,7 +169,7 @@ export const missing_children_controller = new Elysia()
         message: "Registro removido",
       });
     },
-    {
+    {auth:true,
       params: t.Object({ id: t.String() }),
       response: {
         200: "missing_children_success",

@@ -1,9 +1,11 @@
 import Elysia, { t } from "elysia";
 import { child_matches_models } from "./matches.models";
 import { matches_service } from "./matches.service";
+import { auth_true_user } from "../../plugins/better_auth";
 
 export const matches_controller = new Elysia()
   .use(child_matches_models)
+  .use(auth_true_user)
   .post(
     "/run",
     async ({ body, status }) => {
@@ -16,6 +18,7 @@ export const matches_controller = new Elysia()
       });
     },
     {
+      auth:true,
       body: "run_matching_payload",
       detail:{
 
@@ -35,7 +38,7 @@ export const matches_controller = new Elysia()
         timestamp: new Date().toISOString(),
       });
     },
-    {
+    {auth:true,
       query: "query_filter_child_matches",
       response: {
         200: "child_matches_paginated",
@@ -65,7 +68,7 @@ export const matches_controller = new Elysia()
         timestamp: new Date().toISOString(),
       });
     },
-    {
+    {auth:true,
       params: t.Object({ id: t.String() }),
       body: "_update_child_match_status",
       response: {

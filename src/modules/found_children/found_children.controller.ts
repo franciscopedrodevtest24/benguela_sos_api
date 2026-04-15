@@ -1,9 +1,11 @@
 import Elysia, { t } from "elysia";
 import { found_children_models } from "./found_children.models";
 import { found_children_service } from "./found_children.service";
+import { auth_true_user } from "../../plugins/better_auth";
 
 export const found_children_controller = new Elysia()
   .use(found_children_models)
+  .use(auth_true_user)
   .post(
     "/",
     async ({ body, status }) => {
@@ -46,6 +48,7 @@ export const found_children_controller = new Elysia()
       });
     },
     {
+      auth:true,
       query: "query_filter_found_children",
       response: {
         200: "found_children_paginated",
@@ -76,7 +79,7 @@ export const found_children_controller = new Elysia()
         timestamp: new Date().toISOString(),
       });
     },
-    {
+    {auth:true,
       params: t.Object({
         id: t.String(),
       }),
@@ -109,7 +112,7 @@ export const found_children_controller = new Elysia()
         });
       }
     },
-    {
+    {auth:true,
       body: "update_found_children",
       response: {
         200: "found_children_success",
@@ -151,7 +154,7 @@ export const found_children_controller = new Elysia()
         });
       }
     },
-    {
+    {auth:true,
       body: "_update_status_found_children",
       response: {
         200: "found_children_success",
@@ -187,7 +190,7 @@ export const found_children_controller = new Elysia()
         message: "Registro removido",
       });
     },
-    {
+    {auth:true,
       params: t.Object({
         id: t.String(),
       }),
