@@ -24,7 +24,7 @@ export default{
     ctx: Context,
   ):Promise<Response>=>{
     console.log(`SERVER RUNNING  http://localhost:3000`)
-    start_matches_cron()
+    // start_matches_cron()
     const pathname = new URL(request.url).pathname
 
     return await app.fetch(request)
