@@ -9,7 +9,9 @@ const auth_true_user = new Elysia({ name: "better-auth" })
         const session = await auth.api.getSession({
           headers,
         });
-        if (!session) return status(401);
+        if (!session) return status(401,{
+          
+        });
         return {
           user: session.user,
           session: session.session,

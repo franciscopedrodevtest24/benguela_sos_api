@@ -3,6 +3,7 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 import {  openAPI, username } from "better-auth/plugins"
+import { apiKey } from "@better-auth/api-key"
 
 import * as schema from "../db/schemas/auth/auth-schema";
 
@@ -16,6 +17,13 @@ export const auth = betterAuth({
   emailAndPassword: { enabled: true },
   plugins: [ 
     openAPI(),
-    username() 
+    username(),
+    apiKey({
+      rateLimit: {
+        enabled: true,
+        timeWindow: 1000 * 60 * 60 * 24, // 1 day
+        maxRequests: 10, // 10 requests per day
+      },
+    }) 
 ] 
 });

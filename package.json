@@ -8,6 +8,7 @@
     "seed": "bun run src/db/seed.ts"
   },
   "dependencies": {
+    "@better-auth/api-key": "^1.6.3",
     "@elysiajs/cors": "^1.4.1",
     "@elysiajs/cron": "^1.4.1",
     "@elysiajs/openapi": "^1.4.14",
